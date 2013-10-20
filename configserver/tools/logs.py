@@ -20,7 +20,8 @@ def get_logs_list():
     '''    
     result = []    
     for file in os.listdir(settings.LOG_DIR):
-        result.append(file)
+        if ('cherrypy-server' not in file):
+            result.append(file)
         
     log.debug('Found log files: %s', str(result))
     return result
