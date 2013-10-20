@@ -16,7 +16,7 @@ log = logging.getLogger(__name__)
 
 class IniConfig:
     general = None
-    specific = None
+    notifications = None
         
     config_filepath = None
     
@@ -24,7 +24,7 @@ class IniConfig:
         ''' Config object constructor. Can create data from actual config file or from given config dictionary. '''
         #First we create empty config dicts.
         self.general = dict()
-        self.specific = dict()
+        self.notifications = dict()
         
         self.config_filepath = os.path.join(os.getcwd(), settings.CONFIG_FILENAME)
         print self.config_filepath
@@ -41,8 +41,8 @@ class IniConfig:
             
             if parser.has_section('general'):
                 self.general = dict(parser.items('general'))
-            if parser.has_section('specific'):
-                self.specific = dict(parser.items('specific'))
+            if parser.has_section('notifications'):
+                self.notifications = dict(parser.items('notifications'))
             log.debug("Current INI Configuration read successfully.")
             
         if config_dict and type(config_dict) is dict:
@@ -56,9 +56,9 @@ class IniConfig:
             self.general['switch_param'] = self._get_onoff_from_dict(config_dict, 'general_switch_param')
             self.general['numerical_value'] = self._get_float_from_dict(config_dict, 'general_numerical_value')
             
-            self.specific['something'] = self._get_str_from_dict(config_dict, 'specific_something')
-            self.specific['enabled'] = self._get_bool_from_dict(config_dict, 'specific_enabled')
-            self.specific['number'] = self._get_float_from_dict(config_dict, 'specific_number')
+            self.notifications['something'] = self._get_str_from_dict(config_dict, 'notifications_something')
+            self.notifications['enabled'] = self._get_bool_from_dict(config_dict, 'notifications_enabled')
+            self.notifications['number'] = self._get_float_from_dict(config_dict, 'notifications_number')
             
             log.debug("INI configuration dictionary read.")
 
@@ -71,9 +71,9 @@ class IniConfig:
         config_dict['general_switch_param'] =  self.general['switch_param']
         config_dict['general_numerical_value'] =  self.general['numerical_value']
         
-        config_dict['specific_something'] =  self.specific['something']
-        config_dict['specific_enabled'] =  self.specific['enabled']
-        config_dict['specific_number'] =  self.specific['number']
+        config_dict['notifications_something'] =  self.notifications['something']
+        config_dict['notifications_enabled'] =  self.notifications['enabled']
+        config_dict['notifications_number'] =  self.notifications['number']
         
         return config_dict
 
@@ -82,7 +82,7 @@ class IniConfig:
         
         parser = SafeConfigParser()
         
-        for section in ['general', 'specific']:
+        for section in ['general', 'notifications']:
             section_dict = getattr(self, section)
             parser.add_section(section)
             for section_key in section_dict.keys():
@@ -139,7 +139,7 @@ class IniConfig:
 
 def purge_config_dict(post_dict):
     ''' Removes all unnecessary keys from given dict '''
-    allowed_keys = ['general_str_param', 'general_switch_param', 'general_numerical_value', 'specific_something', 'specific_enabled','specific_number']
+    allowed_keys = ['general_str_param', 'general_switch_param', 'general_numerical_value', 'notifications_something', 'notifications_enabled','notifications_number']
     result_dict = dict()
     
     for key in post_dict.keys():

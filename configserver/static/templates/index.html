@@ -1,9 +1,14 @@
 {% extends "base.html" %}
-{% block title %}cultura overview{% endblock %}
+{% block title %}cultura{% endblock %}
 {% block overviewActive %}active{% endblock %}
 
 {% block content %}
-    <div class="chapterTitle">Stats</div>
-    <div class="dottedListItem">Server time: <b>{{current_time}}</b></div>  
+    <div class="chapterTitle">info</div>
+    <div class="dottedListItem">current time: <b>{{current_time}}</b></div>  
+    <div class="dottedListItem">grow start time: <b>{{current_time}}</b></div>  
+    <div class="dottedListItem">projected grow end time: <b>{{current_time}}</b></div>  
+    <div class="chapterTitle">status</div>
+    <div class="dottedListItem">water level: <b>{{current_time}}</b></div>  
+    <div class="dottedListItem">last notification: <b>{{current_time}}</b></div>  
 
 {% endblock %}

@@ -2,10 +2,11 @@
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head>
   <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-  <meta name="keywords" content="cherrypy">
-  <meta name="description" content="Cherrypy Web Server - Simple demonstration project">
+  <meta name="keywords" content="cultura">
+  <meta name="description" content="cultura web server">
   <title>{% block title %}{% endblock %}</title>
   <link href="/static/css/style.css" rel="stylesheet" type="text/css">
+  <link rel="shortcut icon" href="/static/images/cultura_16x16.ico">
   <script type="text/javascript" src="/static/js/jquery-1.7.2.min.js"></script>
   <script type="text/javascript" src="/static/js/rollover.js"></script>
     {% block extrahead %}{% endblock %}
@@ -17,9 +18,9 @@
       <div class="logoHome"></div>
       <div id="header">
 	<ul id="topnav">
-	  <li><a href="/" class="{% block overviewActive %}{% endblock %}">Overview</a></li>
-	  <li><a href="/ini" class="{% block iniConfigActive %}{% endblock %}">Configuration</a></li>
-	  <li><a href="/logs" class="{% block logsActive %}{% endblock %}">Log files</a></li>                
+	  <li><a href="/" class="{% block overviewActive %}{% endblock %}">home</a></li>
+	  <li><a href="/ini" class="{% block iniConfigActive %}{% endblock %}">settings</a></li>
+	  <li><a href="/logs" class="{% block logsActive %}{% endblock %}">logs</a></li>                
 	</ul>
       </div>
     </div>    
@@ -32,14 +33,8 @@
   </div>
   <!-- End of Content -->
   <div class="footer">
-    <div class="clientFoot"><a class="orangeLink" href="/">HomePage</a></div>    
-    <div class="companyFoot"><a class="orangeLink" href="https://github.com/jovanbrakus/cherrypy-example">Project HomePage</a></div>
-    <div class="contactLinkFoot"><a class="orangeLink" href="http://brakus.rs/">by Jovan Brakus</a></div>
-    <div class="supportFoot"><a class="orangeLink" href="http://www.cherrypy.org/">CherryPy HomePage</a></div>
     <div class="contactFoot">
-	CherryPy Sample project<br>
-	Demonstrating CherryPy<br> 
-	A Minimalist Python Web Framework<br> 
+	cultura 2<br>
     </div>
   </div>
 </body>

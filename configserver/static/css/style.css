@@ -22,8 +22,8 @@ body {
 .logoHome {
 	background-image: url(/static/img/logo.png);
 	float: left;
-	height: 57px;
-	width: 122px;
+	height: 60px;
+	width: 60px;
 	background-repeat: no-repeat;
 	background-position: left bottom;
 }
