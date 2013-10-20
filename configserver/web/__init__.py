@@ -28,8 +28,8 @@ class ConfigServer:
         static_dir = os.path.join(current_dir, '..', 'static')        
 
         self.config = { '/': {'tools.basic_auth.on': True,
-                              'tools.basic_auth.realm': 'CherryPy Restricted space. Hint[user:cherrypy & pass:cherrypy]',
-                              'tools.basic_auth.users': {'cherrypy':encrypt_pw('cherrypy')},
+                              'tools.basic_auth.realm': 'default login [user: cultura2, password: cultura2]',
+                              'tools.basic_auth.users': {'cultura2':encrypt_pw('cultura2')},
                               'tools.basic_auth.encrypt': encrypt_pw,
                               'tools.staticdir.root': static_dir},
                         '/static': {'tools.gzip.on': True,
