@@ -1,9 +1,9 @@
 {% extends "base.html" %}
-{% block title %}CherryPy Web Server - Ini config{% endblock %}
+{% block title %}cultura settings{% endblock %}
 {% block iniConfigActive %}active{% endblock %}
 
 {% block content %}
-    <div class="chapterTitle">Current Ini-config settings [ <a href="./edit">edit</a> | <a href="./download">download</a> ]</div>
+    <div class="chapterTitle">current settings [ <a href="./edit">edit</a> | <a href="./download">download</a> ]</div>
     
     <div class="subchapterTitle">Section: general</div>
     {% for key, value in ini_config.general.items() %}
