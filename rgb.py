@@ -1,5 +1,6 @@
 import RPi.GPIO as GPIO
 import time
+import subprocess
 GPIO.setmode(GPIO.BCM)
 
 pr = 18
@@ -50,8 +51,7 @@ def led_pink(r, g, b):
 	GPIO.output(g, True)
 	GPIO.output(b, False)
 
-while(True): led_off(pr, pg, pb)
-while(True):
+def rainbow(r, g, b):
 	led_red(pr, pg, pb)
 	time.sleep(0.05)
 	led_pink(pr, pg, pb)
@@ -65,5 +65,22 @@ while(True):
 	led_yellow(pr, pg, pb)
 	time.sleep(0.05)
 
+while(True):
+	color = subprocess.check_output(["tail", "-n", "1", "indicator_light"])
+
+	
+	r = ('FF' in color[1:3])
+	g = ('FF' in color[3:5])
+	b = ('FF' in color[5:7])
+	if r: print "r"
+	if g: print "g"
+	if b: print "b"
+	GPIO.output(pr, not r)
+	GPIO.output(pg, not g)
+	GPIO.output(pb, not b)
+	time.sleep(5)
+	
+	
+	
 	
 
