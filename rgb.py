@@ -7,9 +7,9 @@ pr = 18
 pg = 23
 pb = 24
 
-GPIO.setup(18, GPIO.OUT)
-GPIO.setup(23, GPIO.OUT)
-GPIO.setup(24, GPIO.OUT)
+GPIO.setup(pr, GPIO.OUT)
+GPIO.setup(pg, GPIO.OUT)
+GPIO.setup(pb, GPIO.OUT)
 
 def led_off(r, g, b):
 	GPIO.output(r, True)

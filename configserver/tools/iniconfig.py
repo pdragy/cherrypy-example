@@ -52,10 +52,17 @@ class IniConfig:
                 log.error("Given INI configuration dictionary is not valid.")
 				#Failed validation should be handled properly... throw back flash message to user or similar.
             
+            self.general['email alert'] = self._get_onoff_from_dict(config_dict, 'general_email_alert')
+            self.general['email address'] = self._get_str_from_dict(config_dict, 'general_email_address')
+            self.general['sms text alert'] = self._get_onoff_from_dict(config_dict, 'general_sms_text_alert')
+            self.general['cell phone number'] = self._get_str_from_dict(config_dict, 'general_cell_phone_number')
+            self.general['cell phone provider'] = self._get_str_from_dict(config_dict, 'general_cell_phone_number_provider')
             self.general['str_param'] = self._get_str_from_dict(config_dict, 'general_str_param')
             self.general['switch_param'] = self._get_onoff_from_dict(config_dict, 'general_switch_param')
             self.general['numerical_value'] = self._get_float_from_dict(config_dict, 'general_numerical_value')
             
+            self.notifications['text alerts'] = self._get_bool_from_dict(config_dict, 'notifications_sms')
+            self.notifications['phone number for texts'] = self._get_str_from_dict(config_dict, 'notifications_phone')
             self.notifications['something'] = self._get_str_from_dict(config_dict, 'notifications_something')
             self.notifications['enabled'] = self._get_bool_from_dict(config_dict, 'notifications_enabled')
             self.notifications['number'] = self._get_float_from_dict(config_dict, 'notifications_number')
@@ -67,10 +74,17 @@ class IniConfig:
         
         config_dict = dict()
         
+        config_dict['general_email_alert'] =  self.general['email alert']
+        config_dict['general_email_address'] =  self.general['email address']
+        config_dict['general_sms_text_alert'] =  self.general['sms text alert']
+        config_dict['general_cell_phone_number'] =  self.general['cell phone number']
+        config_dict['general_cell_phone_provider'] =  self.general['cell phone provider']
         config_dict['general_str_param'] =  self.general['str_param']
         config_dict['general_switch_param'] =  self.general['switch_param']
         config_dict['general_numerical_value'] =  self.general['numerical_value']
         
+        config_dict['notifications_something'] =  self.notifications['something']
+        config_dict['notifications_something'] =  self.notifications['something']
         config_dict['notifications_something'] =  self.notifications['something']
         config_dict['notifications_enabled'] =  self.notifications['enabled']
         config_dict['notifications_number'] =  self.notifications['number']
